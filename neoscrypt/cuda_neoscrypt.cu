@@ -168,52 +168,52 @@ static void shift256R4(uint32_t* ret, const uint8 &vec4, const uint32_t shift2)
 
 #define BLAKE(a, b, c, d, key1, key2) { \
 	a += key1; \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key2; \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G(idx0, idx1, a, b, c, d, key) { \
 	idx = BLAKE2S_SIGMA[idx0][idx1]; a += key[idx]; \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
-	idx = BLAKE2S_SIGMA[idx0][idx1+1]; a += key[idx]; \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
+	idx = BLAKE2S_SIGMA[idx0][idx1 + 1]; a += key[idx]; \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE(idx0, idx1, a, b, c, d, key) { \
 	a += key[idx0]; \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key[idx1]; \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE0(idx0, idx1, a, b, c, d, key) { \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE1(idx0, idx1, a, b, c, d, key) { \
 	a += key[idx0]; \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE2(idx0, idx1, a, b, c, d, key) { \
-	a += b; d = rotateL(d^a, 16); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = rotateL(d ^ a, 16); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key[idx1]; \
-	a += b; d = rotateR(d^a, 8); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = rotateR(d ^ a, 8); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 static __forceinline__ __device__
@@ -390,52 +390,52 @@ void Blake2S(uint32_t *out, const uint32_t* const __restrict__  inout, const  ui
 
 #define BLAKE_G(idx0, idx1, a, b, c, d, key) { \
 	idx = BLAKE2S_SIGMA[idx0][idx1]; a += key[idx]; \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
-	idx = BLAKE2S_SIGMA[idx0][idx1+1]; a += key[idx]; \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
+	idx = BLAKE2S_SIGMA[idx0][idx1 + 1]; a += key[idx]; \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE(a, b, c, d, key1,key2) { \
 	a += key1; \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key2; \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE(idx0,idx1, a, b, c, d, key) { \
 	a += key[idx0]; \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key[idx1]; \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE0(idx0,idx1, a, b, c, d, key) { \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE1(idx0,idx1, a, b, c, d, key) { \
 	a += key[idx0]; \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 #define BLAKE_G_PRE2(idx0,idx1, a, b, c, d, key) { \
-	a += b; d = __byte_perm(d^a, 0, 0x1032); \
-	c += d; b = rotateR(b^c, 12); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x1032); \
+	c += d; b = rotateR(b ^ c, 12); \
 	a += key[idx1]; \
-	a += b; d = __byte_perm(d^a, 0, 0x0321); \
-	c += d; b = rotateR(b^c, 7); \
+	a += b; d = __byte_perm(d ^ a, 0, 0x0321); \
+	c += d; b = rotateR(b ^ c, 7); \
 }
 
 static __forceinline__ __device__
@@ -1258,11 +1258,11 @@ uint32_t fastkdf32_v3(uint32_t thread, const uint32_t nonce, uint32_t* const sal
 
 #define BLAKE_Ghost(idx0, idx1, a, b, c, d, key) { \
 	idx = BLAKE2S_SIGMA_host[idx0][idx1]; a += key[idx]; \
-	a += b; d = ROTR32(d^a,16); \
-	c += d; b = ROTR32(b^c, 12); \
-	idx = BLAKE2S_SIGMA_host[idx0][idx1+1]; a += key[idx]; \
-	a += b; d = ROTR32(d^a,8); \
-	c += d; b = ROTR32(b^c, 7); \
+	a += b; d = ROTR32(d ^ a,16); \
+	c += d; b = ROTR32(b ^ c, 12); \
+	idx = BLAKE2S_SIGMA_host[idx0][idx1 + 1]; a += key[idx]; \
+	a += b; d = ROTR32(d ^ a,8); \
+	c += d; b = ROTR32(b ^ c, 7); \
 }
 
 static void Blake2Shost(uint32_t * inout, const uint32_t * inkey)
