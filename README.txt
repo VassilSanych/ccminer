@@ -590,3 +590,4 @@ With kind regards,
    Christian Buchner ( Christian.Buchner@gmail.com )
    Christian H. ( Chris84 )
    Tanguy Pruvot ( tpruvot@github )
+	 Vassily Godunov ( vassil.sanych@gmail.com )
