@@ -30,6 +30,7 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <curl.h>
 
 #include "miner.h"
 #include "nvml.h"
@@ -597,7 +598,7 @@ static size_t base64_encode(const uchar *indata, size_t insize, char *outptr, si
 	return len;
 }
 
-#include "compat/curl-for-windows/openssl/openssl/crypto/sha/sha.h"
+#include <openssl/sha.h>
 
 /* websocket handshake (tested in Chrome) */
 static int websocket_handshake(SOCKETTYPE c, char *result, char *clientkey)

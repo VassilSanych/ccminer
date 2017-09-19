@@ -12,7 +12,7 @@ extern "C" {
 #include <sys/time.h>
 #include <pthread.h>
 #include <jansson.h>
-#include <curl/curl.h>
+#include <curl.h>
 
 #ifdef _MSC_VER
 #undef HAVE_ALLOCA_H

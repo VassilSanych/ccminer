@@ -10,7 +10,8 @@
 #include <sys/time.h>
 #include <time.h>
 #include <signal.h>
-#include <curl/curl.h>
+#include <curl.h>
+
 #include <miner.h>
 
 #include "sia-rpc.h"

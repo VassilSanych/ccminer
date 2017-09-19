@@ -21,8 +21,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <signal.h>
-
-#include <curl/curl.h>
+#include <curl.h>
 #include <openssl/sha.h>
 
 #ifdef WIN32
@@ -3835,7 +3834,7 @@ int main(int argc, char *argv[])
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);
 
-	printf("*** ccminer " PACKAGE_VERSION " for nVidia GPUs by tpruvot@github ***\n");
+	printf("*** ccminer " PACKAGE_VERSION " for nVidia GPUs by VassilSanych@github ***\n");
 	if (!opt_quiet) {
 		const char* arch = is_x64() ? "64-bits" : "32-bits";
 #ifdef _MSC_VER
@@ -3845,8 +3844,8 @@ int main(int argc, char *argv[])
 #endif
 			CUDART_VERSION/1000, (CUDART_VERSION % 1000)/10, arch);
 		printf("  Originally based on Christian Buchner and Christian H. project\n");
-		printf("  Include some algos from alexis78, djm34, sp, tsiv and klausT.\n\n");
-		printf("BTC donation address: 1AJdfCpLWPNoAMDfHF1wD5y8VgKSSTHxPo (tpruvot)\n\n");
+		printf("  Include some algos from tpruvot, alexis78, djm34, sp, tsiv and klausT.\n\n");
+		printf("BTC donation address: 1HWvaezh5AynL4AgkEscAfmgUoPL8Hsf8k (VassilSanych)\n\n");
 	}
 
 	rpc_user = strdup("");

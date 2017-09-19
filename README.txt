@@ -1,12 +1,15 @@
 
-ccminer 2.2.1 (Sept. 2017) "optimized tribus kernel (Maxwell+)"
+ccminer 2.2.2 (Sept. 2017) "VS 2017 + Nuget version"
 ---------------------------------------------------------------
 
 ***************************************************************
 If you find this tool useful and like to support its continuous
           development, then consider a donation.
 
-tpruvot@github:
+VassilSanych:
+  BTC  : 1HWvaezh5AynL4AgkEscAfmgUoPL8Hsf8k
+
+tpruvot:
   BTC  : 1AJdfCpLWPNoAMDfHF1wD5y8VgKSSTHxPo
   DCR  : DsUCcACGcyP8McNMRXQwbtpDxaVUYLDQDeU
 
@@ -277,6 +280,11 @@ so we can more efficiently implement new algorithms using the latest hardware
 features.
 
 >>> RELEASE HISTORY <<<
+	Sep. 01st 2017  v2.2.2
+	                Initial VS 2017 release (tools 2015)
+									Moved to Nuget
+
+	--- tpruvot history ---
   Sep. 01st 2017  v2.2.1
                   Improve tribus algo on recent cards (up to +10%)
 

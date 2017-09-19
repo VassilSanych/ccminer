@@ -20,7 +20,7 @@
 #include <inttypes.h>
 #include <unistd.h>
 #include <jansson.h>
-#include <curl/curl.h>
+#include <curl.h>
 #include <sys/stat.h>
 #include <time.h>
 #ifdef WIN32
