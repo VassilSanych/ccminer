@@ -170,7 +170,8 @@ PublishScripts/
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
-!**/packages/build/
+# can be reinstalled by Update-Package –reinstall
+#!**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
@@ -303,6 +304,8 @@ OpenCover/
 
 
 
+!compat/
+
 ccminer
 *.o
 
@@ -319,7 +322,6 @@ depcomp
 missing
 install-sh
 stamp-h1
-ccminer-config.h*
 compile
 config.log
 config.status
@@ -336,10 +338,6 @@ Thumbs.db
 
 *.iml
 
-Debug/
-Release/
-x64/Debug/
-x64/Release/
 *.suo
 *.user
 *.opensdf
