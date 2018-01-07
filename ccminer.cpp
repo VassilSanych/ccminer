@@ -1888,7 +1888,8 @@ static void *miner_thread(void *userdata)
 
 			if (opt_algo == ALGO_DECRED || opt_algo == ALGO_WILDKECCAK /* getjob */)
 				work_done = true; // force "regen" hash
-			while (!work_done && time(NULL) >= (g_work_time + opt_scantime)) {
+			while (!work_done) // && time(NULL) >= (g_work_time + opt_scantime)) 
+			{
 				usleep(100*1000);
 				if (sleeptime > 4) {
 					extrajob = true;
@@ -2060,7 +2061,7 @@ static void *miner_thread(void *userdata)
 		if (have_stratum && work.data[nodata_check_oft] == 0 && !opt_benchmark) {
 			sleep(1);
 			if (!thr_id) pools[cur_pooln].wait_time += 1;
-			gpulog(LOG_DEBUG, thr_id, "no data");
+			//gpulog(LOG_DEBUG, thr_id, "no data");
 			continue;
 		}
 		if (opt_algo == ALGO_WILDKECCAK && !scratchpad_size) {
@@ -3147,6 +3148,19 @@ void parse_arg(int key, char *arg)
 		break;
 	case 'i':
 		d = atof(arg);
+		applog(LOG_INFO, "Intensity option %s", arg);
+
+
+
+
+
+
+
+
+
+
+
+
 		v = (uint32_t) d;
 		if (v < 0 || v > 31)
 			show_usage_and_exit(1);
@@ -3167,9 +3181,11 @@ void parse_arg(int key, char *arg)
 					}
 					else if (gpus_intensity[n] != (1 << v)) {
 						gpus_intensity[n] = (1 << v);
+
 					}
 				}
 				last = gpus_intensity[n];
+				applog(LOG_INFO, "GPU%u intensity %u", n, gpus_intensity[n]);
 				n++;
 				pch = strtok(NULL, ",");
 			}
@@ -3829,7 +3845,40 @@ int main(int argc, char *argv[])
 {
 	struct thr_info *thr;
 	long flags;
-	int i;
+	//int i;
+
+
+
+	size_t i;
+	//int vvv[16];
+	//for (i = 0; i < 16; i++)
+	//	vvv[i] = i;
+
+
+	//int b[8] = { vvv[4], vvv[5],  vvv[6],  vvv[7],  vvv[5],  vvv[6],  vvv[7],  vvv[4]  };
+	//int c[8] = { vvv[8],  vvv[9],  vvv[10], vvv[11], vvv[10], vvv[11], vvv[8],  vvv[9]  };
+	//int d[8] = { vvv[12], vvv[13], vvv[14], vvv[15], vvv[15], vvv[12], vvv[13], vvv[14] };
+
+	////const size_t vvb[8] = { 4,  5,  6,  7,  5,  6,  7,  4 };
+	////const size_t vvc[8] = { 8,  9,  10, 11, 10, 11, 8,  9 };
+	////const size_t vvd[8] = { 12, 13, 14, 15, 15, 12, 13, 14 };
+
+	//int vb[8]; int vc[8]; int vd[8];
+	//for (i = 0; i < 8; i++)
+	//{
+	//	//vb[i] = vvv[vvb[i]];
+	//	//vc[i] = vvv[vvc[i]];
+	//	//vd[i] = vvv[vvd[i]];
+	//	printf("vb[i] (%u) \n", b[i]);
+	//}
+	////applog(LOG_INFO, "i (%u)", i);
+	
+
+
+
+
+
+
 
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);

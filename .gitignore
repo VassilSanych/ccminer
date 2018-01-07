@@ -368,3 +368,4 @@ Thumbs.db
 *.cudafe1.c
 *.cudafe2.c
 
+/ccminer.vcxproj.bak

@@ -593,6 +593,9 @@
     <ClInclude Include="equi\equihash.h">
       <Filter>Source Files\equi</Filter>
     </ClInclude>
+    <ClInclude Include="compat\nvapi\nvHLSLExtns.h" />
+    <ClInclude Include="compat\nvapi\nvHLSLExtnsInternal.h" />
+    <ClInclude Include="compat\nvapi\nvShaderExtnEnums.h" />
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="cuda.cpp">
